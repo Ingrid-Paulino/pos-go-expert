@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 type Client struct {
-	Nome     string
-	Idade    int
-	Ativo    bool
+	Nome  string
+	Idade int
+	Ativo bool
 	// compondo struct
 	Endereco //é como uma herança da struct endereço
 	//Cria propriedae do tipo CoresFavoritas
@@ -21,10 +21,9 @@ type Endereco struct {
 	Estado     string
 }
 
-type CoresFavoritas {
-	Nome string
+type CoresFavoritas struct {
+	Nome   string
 	Existe bool
-	
 }
 
 func main() {
