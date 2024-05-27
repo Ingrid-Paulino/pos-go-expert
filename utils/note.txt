@@ -1,0 +1,2 @@
+transforma json em struct https://mholt.github.io/json-to-go/
+extençao Thunder Client no vscode, é como um postman no proprio vscode
