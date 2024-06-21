@@ -19,7 +19,7 @@ type ViaCEP struct {
 	Siafi       string `json:"siafi"`
 }
 
-// Para rodar use a extençao Thunder client do vscode: GET http://localhost:8080?cep=31330500
+// Para rodar use a extençao Thunder client do vscode: GET http://localhost:8080?cep=31330500 - curl http://localhost:8080?cep=31330500
 func main() {
 
 	http.HandleFunc("/", BuscaCEPHandler)
@@ -70,6 +70,7 @@ func BuscaCEP(cep string) (*ViaCEP, error) { //nn precisava retornar um ponteiro
 	if err != nil {
 		return nil, err
 	}
+
 	var c ViaCEP
 	err = json.Unmarshal(body, &c) //trensformo valor json em struct
 	if err != nil {

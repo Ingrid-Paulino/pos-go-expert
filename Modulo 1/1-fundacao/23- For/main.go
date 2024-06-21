@@ -24,4 +24,9 @@ func main() {
 	for {
 		println("Hello, World!")
 	}
+
+	//funciona na versão 1.22.1
+	for x := range 10 {
+		println("Hello, World!")
+	}
 }

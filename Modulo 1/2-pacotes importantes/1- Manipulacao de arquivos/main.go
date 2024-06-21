@@ -15,7 +15,7 @@ func main() {
 
 	//grava dados no arquivo e mostra o tamanho do que foi gravado
 	//tamanho, err := f.WriteString("Hello, World!") //grava strings
-	tamanho, err := f.Write([]byte("Escrevendo dados no arquivo")) //brava por bytes, use quando não sabe oq será gravado
+	tamanho, err := f.Write([]byte("Escrevendo dados no arquivo")) //grava por bytes, use quando não sabe oq será gravado
 	if err != nil {
 		panic(err)
 	}
