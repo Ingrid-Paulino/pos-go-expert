@@ -1,0 +1,17 @@
+- Gorm ORM do GO https://gorm.io/index.html
+ORM facilita a manipulação de dados em um banco de dados relacional, como o MySQL, PostgreSQL, SQLite, SQL Server, etc. Para que não
+precise trabalhar com SQL puro, mas sim com objetos, como se estivesse trabalhando com um banco de dados NoSQL.
+
+
+
+- https://github.com/golang-standards/project-layout - Layout de projeto em Go, com uma estrutura de diretórios bem definida e organizado.
+
+Apache Bench:
+O Apache Bench é uma ferramenta para teste de carga e benchmarking (tem que instalar no pc)
+// Podemos testar isso rodando varias solicitacoes com o apache Bench que é uma ferramenta para teste de carga e benchmarking (tem que instalar no pc, no mac ja tem por default)
+// comando: ab -n 10000 -c 100 http://localhost:3000 (10000 é o numero de solicitacoes que vao rodar, 100 é a qtd de pessoas que vao acessar) - Aula 4 de concorrencia
+
+Indicação do Ruan: (testes de carga)
+- https://github.com/wg/wrk - Ferramenta para teste de carga e benchmarking (tem que instalar no pc) https://formulae.brew.sh/formula/wrk
+  - wrk -t12 -c400 -d30s http://127.0.0.1:8080/index.html
+- https://www.npmjs.com/package/autocannon

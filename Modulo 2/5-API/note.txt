@@ -1,0 +1,74 @@
+Nesse bloco de API vamos: criar um crud de produtos e usarios e trabalhar com autenticação e autorização.
+
+
+
+Pasta internal: é onde colocamos os arquivos que são usados apenas dentro do nosso projeto, ou seja, que não são exportados para outros projetos. Por exemplo, se tivermos um arquivo que define uma estrutura de dados que é usada apenas em nosso projeto, esse arquivo deve ser colocado na pasta internal.
+Pasta pkg: é onde colocamos os arquivos que são exportados para outros projetos. Por exemplo, se tivermos um arquivo que define uma estrutura de dados que é usada em nosso projeto e também em outros projetos, esse arquivo deve ser colocado na pasta pkg. Na pasta Pkg guardamos libs que podem ser usadas em outros projetos. Não é algo interno de um sistema, mas é algo que pode ser reutilizado em outros projetos.`
+Pasta cmd: é onde colocamos os arquivos que são executados quando executamos nosso projeto. Por exemplo, se tivermos um arquivo main.go que é executado quando executamos nosso projeto, esse arquivo deve ser colocado na pasta cmd.
+Pasta api: é onde colocamos os arquivos que definem nossa API. Por exemplo, se tivermos um arquivo que define nossas rotas e controladores, esse arquivo deve ser colocado na pasta api. fica o swagger
+Pasta config: é onde colocamos os arquivos de configuração de nosso projeto. Por exemplo, se tivermos um arquivo que define as configurações de nosso banco de dados, esse arquivo deve ser colocado na pasta config.
+Pasta test: é onde colocamos os arquivos de teste de nosso projeto. Por exemplo, se tivermos um arquivo que testa nossas rotas e controladores, esse arquivo deve ser colocado na pasta test. Os arquivos dessa pasta são .go
+Pasta api: é onde colocamos os arquivos que definem nossa API. Por exemplo, se tivermos um arquivo que define nossas rotas e controladores, esse arquivo deve ser colocado na pasta api. Os arquivos dessa pasta são .go
+
+
+
+Redar a aplicação e o banco de dados em memória sqlite
+1- go run main.go
+2- Faça uma requisição POST para http://localhost:8080/products com o seguinte body: {"name": "Product 1", "price": 10.00} / faça pelo arquivo test/product.http
+2- em outra tela, vai na raiz do projeto e rode -> sqlite3 cmd/server/test.db
+3- select * from products;
+
+https://github.com/spf13/viper (github.com/spf13/viper) - para trabalhar com variaveis de ambiente
+github.com/go-chi/jwtauth - para trabalhar com autenticação e autorização
+
+
+web frameworks de rotiamento do golang: -->  web frameworks: são frameworks que nos ajudam a criar aplicativos da web. Eles fornecem uma estrutura para lidar com solicitações HTTP, roteamento, renderização de modelos, etc. Alguns exemplos de web frameworks populares em Go são:
+- https://echo.labstack.com/
+- https://docs.gofiber.io/
+- https://gin-gonic.com/
+
+frameworks: não estão preocupados apenas com a parte http, mas na parte do desenvolvimento em si, como por exemplo, a parte de banco de dados, a parte de autenticação, a parte de cache, etc. Alguns exemplos de frameworks populares em Go são:
+(é pouco usado pois eles mudam a forma que desenvolvemos, pois ele abrange o software como um todo, e não apenas a parte web.)
+- https://gobuffalo.io/
+- https://github.com/kataras/iris
+
+
+O go puro não posibilita a criação de rotas com parametros, variaveis... por isso precisamos de um roteador.
+Roteador: é uma biblioteca que nos ajuda a lidar com solicitações HTTP e roteamento. Alguns exemplos de roteadores populares em Go são:
+- https://gorilla.github.io/mux
+- https://github.com/go-chi/chi
+
+
+
+JWT:
+https://jwt.io/ (jwt.io) - gerador de token JWT
+OBS: Para usar o token do JWT tem que sempre colocar antes a palavrinha bearer, exemplo: Bearer eyJhbGciOiJIUzadQssw5c...
+
+
+Documentação:
+https://github.com/swaggo/swag (github.com/swaggo/swag) - para gerar a documentação da API em formato Swagger
+para o comando "go swag" funcionar, precisamos colocar o comando nas variaveis de ambiente do sistema operacional. Para isso, siga os passos abaixo:
+1. Abra o terminal
+2. Execute o comando "go env" para exibir as variáveis de ambiente do Go
+3. Procure pela variável "Path" e copie o valor dela
+4. Abra as variáveis de ambiente do sistema operacional (no Windows, vá em "Configurações do sistema" > "Sistema" > "Avançado" > "Variáveis de ambiente"; no macOS, abra o terminal e execute o comando "nano ~/.bash_profile")
+5. Cole o valor da variável "Path" no final da variável "Path" das variáveis de ambiente do sistema operacional
+//OBS: nn consegui colocar pra funcionar
+
+
+Swagger:
+https://swagger.io/ (swagger.io) - para visualizar a documentação da API em formato Swagger
+Passo a passo:
+1º Instalar o pacote
+2º rode o comando swag init
+3º Coloca a documentação no main e rode o comando "swag init -g cmd/server/main.go
+4º add ao final da função main a linha: r.Get("/docs/*", httpSwagger.Handler(httpSwagger.URL("http://localhost:8080/docs/doc.json"))) //http://localhost:8080/docs/index.html: rota para acessar a documentação da API
+5º coloque a importação docs no arquivo main.go (Tem duas importacoes importantes que o arquivo main tem que ter, uma é a chamada da pasta docs que não será usada e a outra é o httpSwagger que é a importação do swagger)
+6º rode go mod tidy
+7º rode o comando "swag init -g cmd/server/main.go
+8º rode go run main.go
+9º Rode no browser o link: http://localhost:8080/docs/index.html
+10º documente as func do handle
+8º rode go run main.go
+9º Rode no browser o link: http://localhost:8080/docs/index.html
+10º OBS: Para usar o token do JWT tem que sempre colocar antes a palavrinha bearer, exemplo: Bearer eyJhbGciOiJIUzadQssw5c...

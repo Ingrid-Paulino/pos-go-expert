@@ -1,0 +1,8 @@
+- Transforma json em struct https://mholt.github.io/json-to-go/
+- Extençao Thunder Client no vscode, é como um postman no proprio vscode
+- Documentação do pacote template do GO: https://pkg.go.dev/html/template  https://pkg.go.dev/text/template
+
+
+//Posso mudar a versão da linguagem
+gvm use go1.22.1 
+gvm use go1.21.1

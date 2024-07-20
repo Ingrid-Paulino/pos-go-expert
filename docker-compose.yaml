@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: goexpert
+      MYSQL_PASSWORD: root
+    ports:
+      - 3306:3306
+
+
+#para rodar: docker-compose up -d
+#para parar: docker-compose down
+#para ver os logs: docker-compose logs -f
+#para ver os logs de um serviço específico: docker-compose logs -f <nome-do-serviço>
+#para ver os logs de todos os serviços: docker-compose logs -f --tail=0
+#para ver os logs de um serviço específico: docker-compose logs -f --tail=0 <nome-do-serviço>
+
+#para entrar no mysql: docker exec -it mysql mysql -uroot -proot goexpert
+#ou
+#docker-compose exec -it mysql bash --> usei esse
+# clear
+# mysql -uroot -p goexpert
+#coloca a senha
+
+#cria tabela: CREATE TABLE products (id varchar(255), name varchar(80), price decimal(10,2), PRIMARY KEY (id));
+
+# show tables; --> mostra as tabelas
+# describe products; --> mostra a estrutura da tabela
+# select * from products; --> mostra os registros da tabela
+# insert into products (id, name, price) values ('1', 'Product 1', 10.00); --> insere um registro na tabela
+# desc products; --> mostra a estrutura da tabela
+
+#drop table products; --> apaga a tabela
+#delete from data where code="USD";

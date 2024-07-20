@@ -1,0 +1,12 @@
+Esse bloco é para aprendermos criar os nossos próprios pacotes no GO.
+1º: Ao Iniciar um projeto no go com o comando `go mod init github.com/repositorioNome/projetoNome` é criado um arquivo chamado `go.mod` que é o responsável por gerenciar as dependências do projeto.
+- Esse comando indica para o Go trabalhar nesse diretorio e não no Go Path.
+  -  pwd -> mostra o diretório atual
+  -  go env | grep PATH -> Go vai criar os meus programas nesse endereço do go path e não no diretorio atual que eu estou
+ Sendo assim, o Go permite uma forma de voce conseguir trabalhar de qualquer pasta do seu computador, independente de onde estiver o Go Path. Isso é possivel por causa do Go Mod.
+
+
+ -> go mod init nome -> O nome do projeto pode ser qualquer coisa, mas geralmente é a URL do repositorio no github. Pq se alguem for baixar, o GO automaticamente vai baixar na pasta correta.
+
+
+-> Pasta cmd fica os arquivos de execução

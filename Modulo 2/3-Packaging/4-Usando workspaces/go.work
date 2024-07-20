@@ -1,0 +1,7 @@
+go 1.21.1
+
+//nn precisamos publicar esse arquivo. Coloque no gitignore
+use (
+	./math
+	./sistema
+)
