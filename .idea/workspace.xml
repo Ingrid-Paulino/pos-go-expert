@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcb20ae4-ed75-44a7-ad53-e2eac3c2c842" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Modulo 2/2-Desafio 1/client/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo 2/2-Desafio 1/client/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modulo 2/2-Desafio 1/client/cotaçao.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo 2/2-Desafio 1/client/cotaçao.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modulo 2/2-Desafio 1/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo 2/2-Desafio 1/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modulo 2/2-Desafio 1/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo 2/2-Desafio 1/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modulo 2/2-Desafio 1/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo 2/2-Desafio 1/server/server.go" afterDir="false" />
-    </list>
+    <list default="true" id="dcb20ae4-ed75-44a7-ad53-e2eac3c2c842" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -159,22 +153,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/Modulo 2/2-Desafio 1/server/server.go</url>
-          <line>140</line>
+          <line>139</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/Modulo 2/2-Desafio 1/server/server.go</url>
-          <line>141</line>
+          <line>140</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/Modulo 2/2-Desafio 1/server/server.go</url>
-          <line>142</line>
+          <line>141</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/Modulo 2/2-Desafio 1/server/server.go</url>
-          <line>147</line>
+          <line>146</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
