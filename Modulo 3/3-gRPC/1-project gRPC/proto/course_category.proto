@@ -1,0 +1,52 @@
+//Definição do protofile, ele vai permitir a criacao do schema/contrato do protocol buffer e do gRPC
+//Comando para rodar o arquivo e gerar o código: protoc --go_out=. --go-grpc_out=. proto/course_category.proto
+  //Depois de rodar esse comando, será criado um pacote chamado pb na pasta internal com dois arquivos: course_category.pb.go e course_category_grpc.pb.go
+
+syntax = "proto3";
+package pb; //É comum colocar o nome do pacote como pb(protocol buffer)
+option go_package = "internal/pb"; //Nesse caminho é onde p pacote será criado/instalado depois de rodar o comando make install
+
+message blank {}
+
+message Category {
+    string id = 1; //OBS: a nemeração é simplesmente uma ordem
+    string name = 2;
+    string description = 3;
+}
+
+message CreateCategoryRequest {
+    string name = 1;
+    string description = 2;
+}
+
+message CategoryList {
+    repeated Category categories = 1; //repeated é usado para definir uma lista de elementos
+}
+
+message CategoryResponse {
+    Category category = 1;
+}
+
+message CategoryGetRequest {
+    string id = 1;
+}
+
+service CategoryService {
+    rpc CreateCategory(CreateCategoryRequest) returns (CategoryResponse) {}
+    rpc ListCategories(blank) returns (CategoryList) {} //Como paramêtro é obrigatório passar um valor, por isso foi criado o message blank vazia ja que n quero passar nada
+    rpc GetCategory(CategoryGetRequest) returns (Category) {}
+
+    //As vezes queremos abrir um canal de comunicação com o cliente, para isso usamos o stream
+    //Esse canal as vezes queremos que envie varios dados ou que receba varios dados de uma vez e pra isso usamos o stream
+
+    //vamos enviar varios dados de uma vez
+    //O canal ficara aberto e enviaremos varias categorias de uma vez para o cliente
+    rpc CreateCategoryStream(stream CreateCategoryRequest) returns (CategoryList) {}
+
+    //Trabalhando com stream bidirecional (vamos enviando e recebendo dados ao mesmo tempo)
+    //O fluxo será, envia um dado e recebe um dado
+    rpc CreateCategoryStreamBidirectional(stream CreateCategoryRequest) returns (stream Category) {}
+}
+
+
+

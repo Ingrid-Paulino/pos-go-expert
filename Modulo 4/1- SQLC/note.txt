@@ -1,0 +1,82 @@
+SQLC:https://sqlc.dev/
+- sera abordado o uso do sqlc para gerar os arquivos de migrations, models, sqlx, sqlc...
+- vamos usar sql puro, sem orm, para ter mais controle sobre as queries
+
+
+Pacote de migrations do go : https://github.com/golang-migrate/migrate (existem outros)
+  instalar: https://github.com/golang-migrate/migrate/blob/master/cmd/migrate
+  - Depois de instalar o pacote, é só rodar o comando "migrate" na linha de comando para ver os comandos disponíveis (esse pacote é open source e da pra usar com varios bancos de dados)
+
+RODANDO AS MIGRATIONS NO DOCKER:
+COMESANDO: OBS: o arquivo Makefile tem os comandos para rodar as migrations de forma resumida
+- migrate create -ext=sql -dir=sql/migrations -seq init -> cria um arquivo de migration/ext é a extensão do arquivo, o tipo de ferramenta que vc vai mexer com a migration (sql, go, etc)
+  - Esse comando cria a pasta sql/migrations e dois arquivos sql
+    - arquivo down.sql: é o arquivo que vai ser executado quando vc quiser dar um rollback na migration - coloca todo o sql que destroi a migration up.sql
+    - arquivo up.sql: é o arquivo que vai ser executado quando vc quiser aplicar a migration - colocamos o codigo sql
+
+- preencher os arquivos da migration com o sql que queremos executar
+- rodar: docker-compose up -d para subir o banco de dados
+- testar as migrations:
+  rodar: migrate -path=sql/migrations -database "mysql://root:root@tcp(localhost:3306)/courses" -verbose up
+  - esse comando executa as migrations que estão na pasta sql/migrations
+  - database é a string de conexão com o banco de dados
+  - path é o caminho para a pasta das migrations
+  - up é o comando para executar as migrations up (aplica as migrations)
+  - verbose é o comando para mostrar o log das migrations
+
+Verificar se o comando acima funcionou:
+- acessar o banco de dados: docker-compose exec mysql bash --- ou --- docker-compose exec mysql mysql -u root -p courses
+- bash-4.2#: mysql -uroot -p courses
+- bash-4.2#: root
+- mysql > show tables;
+- mysql > desc courses;
+- mysql > desc courses;
+- mysql > desc categories;
+- mysql > select * from courses;
+- mysql > exit
+
+- migrate -path=sql/migrations -database "mysql://root:root@tcp(localhost:3306)/courses" -verbose down
+  - esse comando desfaz as migrations que estão na pasta sql/migrations
+  - down é o comando para executar as migrations down (desfaz as migrations)
+
+
+
+EXPLICACOES:
+- SQLX e SQLC substitui o uso de ORM (como o GORM, por exemplo) -> é uma forma de trabalhar com sql puro, sem precisar escrever as queries na mão
+    - SQLX: é uma biblioteca que facilita o uso do sql puro no go https://github.com/jmoiron/sqlx
+    - SQLX facilita não ter que ficar fazendo loops para percorrer os resultados das queries, por exemplo
+    - SQLX facilita relacionar os valores da tabela passando um struct como parametro para a query, por exemplo
+    - Exemplo: Se eu tiver uma tabela com 90 colunas, eu posso passar um struct com 90 campos para a query e o sqlx vai relacionar os valores da tabela com os campos do struct automaticamente
+    - OBS: No curso não vamos usar o SQLX pois ele coloca uma camada de abstração no sql puro, mas ele é muito bom.
+
+    - SQLC: é uma ferramenta que gera o código go a partir de um arquivo sql - https://sqlc.dev/ -- https://github.com/sqlc-dev/sqlc
+    - SQLC gera o código go para executar as queries sql
+    - SQLC gera o código go para executar as migrations
+    - SQLC faz o mapeamento das queries que vc quer utilizar, do schema do banco de dados que vc tem e ele vai gerar todo o codigo go que vc precisa para rodar as queries
+    - Gera queries puras, sem abstração
+    - Tem que ser instalado no pc https://docs.sqlc.dev/en/latest/overview/install.html (go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest)
+    - na linha de comando: sqlc -> mostra os comandos disponíveis
+    -sqlc tem suporte apenas para mysql, postgres, sqlite e cockroachdb
+    - sqlc gera automaticamente o codigo com as queries que geralmente fazemos na mão, na camada de repository
+
+    -OBS:
+      - para o sqlc criei o arquivo sqlc.yaml na raiz do projeto e preenchi com as informações do banco de dados
+      - criei a pasta queries em sql
+      - criei o arquivo queries.sql com as queries que quero utilizar
+        - nesse arquivo colocamos as anotations para o sqlc saber o que fazer com cada query
+        - ex anotation: -- name: ListCategories :many
+      - para rodar o sqlc: sqlc generate
+        - esse comando gera o codigo go a partir do arquivo sql
+        - cria sozinho as funcoes de comunicacao com banco de dados da camada de repository
+        - cria a pasta internal/db com 3 arquivos
+          - db.go: é o arquivo que vai ser usado para abrir a conexão com o banco de dados
+          - models.go: é o arquivo que vai ser usado para fazer o mapeamento dos resultados das queries com os models
+          - queries.go: é o arquivo que vai ser usado para executar as queries (não pode ser alterado esse arquivo)
+
+TRANSACOES:
+- Transações são usadas para garantir a integridade dos dados em um banco de dados
+- Garante que todas as queries sejam executadas, persistidas ou desfeitas em caso de erro com sucesso
+- Em casos de erro temos a garantia que teremos um roolback
+- ex de transacoes na pasta runSQLCTX
+
+

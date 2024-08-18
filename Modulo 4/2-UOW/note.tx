@@ -1,0 +1,53 @@
+OBS: esse bloco nn se roda com go run main.go e sim com  os testes unitarios
+tem passo a passo de como rodar subindo o docker no arquivo add_course_uow_test.go
+
+
+Contexto desse bloco:
+- Em empresas que realisam muitas transaçoes em banco de dados, temos que ter a segurança que as operaçoes serão realizadas com sucesso, e caso ocorra algum erro, temos que ter a segurança que o erro será tratado de forma correta,  ou a operação será desfeita, para que não ocorra inconsistencia nos dados.
+
+ - Nos arquivos sem UOW, temos um exemplo da problematica, onde temos um arquivo de conexão com o banco de dados, e um arquivo de funções que realizam as operações no banco de dados, e um arquivo de testes unitarios que testam as funções do arquivo de funções.
+   - ao rodar o arquivo de testes unitarios, ele irá na primeira rodada salvar os dados no banco de dados corretamente
+   - na segunda rodada, se eu trocar o valor de CourseCategoryID pra 2 no teste, será gerado uma inconsistencia (erro de foreign key) e ele irá falhar.
+      - no banco de dados sera salvo a categoria 1 mas o curso não será salvo
+      - Sendo assim na operação ele persistiu dados pela metade, o que é um problema.
+      -A transaCão tem que dar certo ou errado, não pode dar pela metade.
+      - No nosso dia a dia temos que ter a segurança que se coisas assim ocorram, o erro seja tratado de forma correta, ou a operação seja desfeita, para que não ocorra inconsistencia nos dados.
+
+      OBS: Temos que trabalhar de forma atomica, ou seja, executa as operaçoes no banco ao mesmo tempo e caso nbão de certo, ele volta o banco de dados para o estado anterior
+        - Pra isso temos:
+          - BEGIN TRANSACTION -> iniciar a transação
+          - COMMIT -> finalizar a transação
+          - ROLLBACK -> desfazer a transação
+
+  Para resolver essa problematica, vamos usar o UOW -> Unit of work
+    - A solucão estara nos arquivos com UOW, criamos uma biblioteca para consertar esse problema
+
+
+Entendendo UOW(Unit of Work):
+- O UOW é um padrão de projeto que tem como objetivo garantir a integridade dos dados em uma transação, ou seja, se uma operação falhar, todas as outras operações realizadas na mesma transação serão desfeitas.
+- O UOW é composto por duas partes principais: o repositório e o contexto.
+- O repositório é responsável por fornecer métodos para realizar operações no banco de dados, como inserir, atualizar, excluir e consultar registros.
+- O contexto é responsável por gerenciar a transação e garantir a integridade dos dados. Ele mantém uma lista de todas as oper
+ex:
+  Imagina que tenho:
+    - Transação 1 -> Repo 1
+    - Transação 2 -> Repo 2
+  UOW cria um espaço dentro de uma unidade de trabalho, onde vc consiga jogar as transaçoes dentro de um unico local, onde esse local no final do dia, faz o begin, commit ou rollback.
+
+  Para usar o UOW vamos precisar dos Repositories que o proprio UOW vai gerenciar, e o UOW vai gerenciar a transação, ou seja, ele vai fazer o begin, commit ou rollback.
+
+  Vamos criar:
+    - Register
+    - getRegister
+    - UnRegister
+    - Do(fn func(uow uow) error) error { //Do ou Call (normalmente tem esse nome a funcao) : é o metodo que vai executar a funcao que vai usar o UOW
+        begin
+        Transação 1 -> Repo 1
+        Transação 2 -> Repo 2
+        commit/rollback
+    }
+    )
+
+
+
+OBS: Nesse bloco temos testes unitarios com banco de dados usando o docker

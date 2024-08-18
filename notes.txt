@@ -15,3 +15,63 @@ Indicação do Ruan: (testes de carga)
 - https://github.com/wg/wrk - Ferramenta para teste de carga e benchmarking (tem que instalar no pc) https://formulae.brew.sh/formula/wrk
   - wrk -t12 -c400 -d30s http://127.0.0.1:8080/index.html
 - https://www.npmjs.com/package/autocannon
+
+
+
+RabbitMQ: (https://www.rabbitmq.com/)
+- Sistema de filas
+- Sistema de mensageria
+- Facilita a comunicação entre serviços/sistemas
+- sistema de mensageria viza faciliatar o recebimento de uma quantidade enorme de mensagens/requisicoes, sem que o sistema consiga processar todas de uma vez. (ex: um site de compras, que recebe muitas compras ao mesmo tempo, e nao consegue processar todas de uma vez, entao ele coloca em uma fila, e vai processando uma a uma)
+//OBS: Usamos o docker para subir o rabbitMQ - Modulo 2/ 8-Manipulando eventos/ 2-Projetinho com eventos
+- https://tryrabbitmq.com/ - Site para testar o rabbitMQ
+- Producer: é quem envia a mensagem para a fila
+- Consumer: é quem consome a mensagem da fila
+- Fila: é onde as mensagens ficam armazenadas, até que sejam consumidas
+- Exchange: é o responsavel por receber as mensagens do producer e enviar para a fila correta (Permite que as mensagens sejam enviadas para uma ou mais filas, de acordo com o tipo de exchange configurado.)
+    - Tem 3 tipos de exchange: direct, topic e fanout
+        - direct: envia a mensagem para uma fila especifica, de acordo com a chave de roteamento
+        - topic: envia a mensagem para uma ou mais filas, de acordo com a chave de roteamento
+          - ex: se a chave for "card", a mensagem vai para a fila de "consumer-incentive", se a chave for "card.*.1", a mensagem vai para todas as filas que comecem com "card" e terminem com "1".
+                ex: "card.Z.1", "card.A.1", "card.B.1", etc. -> todas essas filas vao receber a mensagem
+        - fanout: envia a mensagem para todas as filas que estiverem ligadas a ele
+- Binding: é a ligação entre o exchange e a fila (Define as regras de roteamento das mensagens, ou seja, como as mensagens serão enviadas para as filas.)
+   - Permite por baase de uma chave de roteamento, enviar a mensagem para uma fila especifica (ex: se a chave for "card", a mensagem vai para a fila de "consumer-incentive", se a chave for "data", a mensagem vai para a fila de "consumer-auditoria")
+
+
+
+- Transforma json em struct https://mholt.github.io/json-to-go/
+- Extençao Thunder Client no vscode, é como um postman no proprio vscode
+- Documentação do pacote template do GO: https://pkg.go.dev/html/template  https://pkg.go.dev/text/template
+
+
+//Posso mudar a versão da linguagem
+gvm use go1.22.1
+gvm use go1.21.1
+
+
+
+//proxy.golang.org:
+- É um proxy de módulos Go que faz cache dos módulos baixados para que você não precise baixá-los novamente toda vez que você os usa.
+- Facilita o download de pacotes, pois ele faz cache dos pacotes que ja foram baixados, entao se eu ja baixei o pacote "fmt" na versao 1.0.0, e eu quero baixar o pacote "fmt" na versao 1.0.1, ele vai pegar do cache, e nao vai precisar baixar novamente.
+- Se o github ficar fora doar por exemplo, eu consigo baixar os pacotes do github pelo proxy.golang.org, pois ele faz cache dos pacotes.
+- nem sempre todos os pacotes estao disponiveis no proxy.golang.org, entao para ter uma segurança maior posso jogar os pacotes no vendor, e assim eu garanto que os pacotes vao estar disponiveis, mesmo que o proxy.golang.org fique fora do ar.
+- Comando: go mod vendor -> Cria uma pasta chamada vendor, e joga todos os pacotes la dentro. (OBS: o vendor nao é mais necessario a partir do go 1.17, pois o go ja faz o cache dos pacotes automaticamente, mas é bom ter o vendor para garantir que os pacotes vao estar disponiveis, mesmo que o proxy.golang.org fique fora do ar)
+O vendor garante que os pacotes vao estar disponiveis, mesmo que o proxy.golang.org fique fora do ar, ou github, ou se os pacotes por algum motivo forem deletados de algum lugar...  pois ele faz cache dos pacotes.
+
+
+//GraphQL:
+- É uma linguagem de consulta e manipulação de dados para APIs.
+- É uma alternativa ao REST.
+- Foi criada pelo Facebook em 2012, e é open source.
+- É uma especificação, nao é uma tecnologia.
+- É uma linguagem de consulta, entao eu posso fazer uma consulta, e pedir somente os campos que eu quero, e nao todos os campos.
+- https://gqlgen.com/ - Gerador de codigo para GO, que facilita a implementação do GraphQL.
+
+
+
+
+
+
+
+

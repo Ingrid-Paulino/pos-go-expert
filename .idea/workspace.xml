@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dcb20ae4-ed75-44a7-ad53-e2eac3c2c842" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Modulo 1/1-fundacao/6-Slices/ex2/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 2/8-Manipulando Eventos/2-Projetinho com eventos/cmd/consumer/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 2/8-Manipulando Eventos/2-Projetinho com eventos/cmd/producer/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/1-Módulos privados/1-Criando repositorio privado/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/1-Módulos privados/2-Criando repositorio privado/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/1-Módulos privados/2-Criando repositorio privado/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/1-Módulos privados/2-Criando repositorio privado/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/2-GraphQL/1-Introdução ao GraphQL/notes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/2-GraphQL/2- project with GraphQL/graph/model/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/2-GraphQL/2- project with GraphQL/graph/model/course.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/2-GraphQL/2- project with GraphQL/internal/database/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/2-GraphQL/2- project with GraphQL/internal/database/course.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/2-GraphQL/2- project with GraphQL/note.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/3-gRPC/1-project gRPC/cmd/grpcServer/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/3-gRPC/1-project gRPC/internal/database/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/3-gRPC/1-project gRPC/internal/database/course.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/3-gRPC/1-project gRPC/internal/service/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/3-gRPC/1-project gRPC/proto/course_category.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/3-gRPC/note.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/4-Upload S3/cmd/generator/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/4-Upload S3/cmd/uploader com goroutine/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/4-Upload S3/cmd/uploader/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/4-Upload S3/note.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/2- adicionando flags/cmd/root.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/2- adicionando flags/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/2- adicionando flags/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/2- adicionando flags/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/3- comandos encadeados/cmd/root.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/3- comandos encadeados/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/3- comandos encadeados/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/3- comandos encadeados/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/4- flags com encadeamentos/cmd/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/4- flags com encadeamentos/cmd/create.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/4- flags com encadeamentos/cmd/root.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/4- flags com encadeamentos/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/4- flags com encadeamentos/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/4- flags com encadeamentos/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/5- opcoes de flags/cmd/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/5- opcoes de flags/cmd/root.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/5- opcoes de flags/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/5- opcoes de flags/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/5- opcoes de flags/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/6- Flag por referencia/cmd/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/6- Flag por referencia/cmd/root.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/6- Flag por referencia/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/6- Flag por referencia/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/6- Flag por referencia/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/7- hooks/cmd/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/7- hooks/cmd/root.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/7- hooks/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/7- hooks/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/7- hooks/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/8- Trabalhando com banco de dados/cmd/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/8- Trabalhando com banco de dados/cmd/root.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/8- Trabalhando com banco de dados/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/8- Trabalhando com banco de dados/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/8- Trabalhando com banco de dados/internal/database/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/8- Trabalhando com banco de dados/internal/database/course.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/8- Trabalhando com banco de dados/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 3/5-Cobra CLI/note.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/1- SQLC/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/1- SQLC/cmd/runSQLC/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/1- SQLC/cmd/runSQLCTX/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/1- SQLC/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/1- SQLC/note.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/1- SQLC/sql/queries/queries.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/1- SQLC/sqlc.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/internal/db/db.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/internal/db/models.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/internal/db/queries.sql.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/internal/entity/entity.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/internal/repository/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/internal/repository/course.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/internal/usecase/add_course.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/internal/usecase/add_course_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/internal/usecase/add_course_uow.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/internal/usecase/add_course_uow_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/note.tx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/pkg/UOW/uow.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/sql/queries/queries.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/sql/queries/schema.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/2-UOW/sqlc.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/1-DI aclopado sem dependencia/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/1-DI aclopado sem dependencia/product/entity.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/1-DI aclopado sem dependencia/product/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/1-DI aclopado sem dependencia/product/usecase.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/2-DI aclopado com dependencia wire/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/2-DI aclopado com dependencia wire/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/2-DI aclopado com dependencia wire/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/2-DI aclopado com dependencia wire/product/entity.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/2-DI aclopado com dependencia wire/product/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/2-DI aclopado com dependencia wire/product/usecase.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/2-DI aclopado com dependencia wire/wire.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/3-DI sem aclopamento e com dependencia wire/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/3-DI sem aclopamento e com dependencia wire/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/3-DI sem aclopamento e com dependencia wire/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/3-DI sem aclopamento e com dependencia wire/product/entity.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/3-DI sem aclopamento e com dependencia wire/product/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/3-DI sem aclopamento e com dependencia wire/product/usecase.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/3-DI sem aclopamento e com dependencia wire/wire.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/3-DI sem aclopamento e com dependencia wire/wire_gen.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo 4/3-DI/note.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modulo 1/1-fundacao/20- Generics/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo 1/1-fundacao/20- Generics/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modulo 1/1-fundacao/6-Slices/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo 1/1-fundacao/6-Slices/ex1/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modulo 2/8-Manipulando Eventos/2-Projetinho com eventos/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo 2/8-Manipulando Eventos/2-Projetinho com eventos/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modulo 2/8-Manipulando Eventos/2-Projetinho com eventos/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo 2/8-Manipulando Eventos/2-Projetinho com eventos/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modulo 2/8-Manipulando Eventos/2-Projetinho com eventos/pkg/events/event_dispatcher.go" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo 2/8-Manipulando Eventos/2-Projetinho com eventos/pkg/events/event_dispatcher.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modulo 2/8-Manipulando Eventos/2-Projetinho com eventos/pkg/events/event_dispatcher_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo 2/8-Manipulando Eventos/2-Projetinho com eventos/pkg/events/event_dispatcher_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/note.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file:///opt/homebrew/Cellar/go/1.21.1/libexec" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2jVxSBYsFy1HO3OL4h0oa0cEPdq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/Users/ipaulino/Documents/pos-go-expert/Modulo 4/3-DI",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Modulo 4/3-DI" />
+      <recent name="$PROJECT_DIR$/Modulo 4/2-UOW/2-projeto com uow implementado" />
+      <recent name="$PROJECT_DIR$/Modulo 4/2-UOW/2-projeto com uow implementado/internal/usecase" />
+      <recent name="$PROJECT_DIR$/Modulo 4/2-UOW" />
+      <recent name="$PROJECT_DIR$/Modulo 4/1- SQLC/cmd/runSQLCTX" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Modulo 4/3-DI/2-DI com lib" />
+      <recent name="$PROJECT_DIR$/Modulo 4/3-DI/1-DI com lib" />
+      <recent name="$PROJECT_DIR$/Modulo 4/3-DI/1-DI aclopado" />
+      <recent name="$PROJECT_DIR$/Modulo 4/2-UOW" />
+      <recent name="$PROJECT_DIR$/Modulo 4/2-UOW/2-projeto com uow implementado/sql/queries" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build github.com/Ingrid-Paulino/DI">
+    <configuration name="go build github.com/Ingrid-Paulino/DI" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="pos-go-expert" />
+      <working_directory value="$PROJECT_DIR$/Modulo 4/3-DI/2-DI aclopado com dependencia wire" />
+      <kind value="PACKAGE" />
+      <package value="github.com/Ingrid-Paulino/DI" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/Modulo 4/3-DI/2-DI aclopado com dependencia wire/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/Ingrid-Paulino/SQLC/cmd/runSQLCTX" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="pos-go-expert" />
+      <working_directory value="$PROJECT_DIR$/Modulo 4/1- SQLC" />
+      <kind value="PACKAGE" />
+      <package value="github.com/Ingrid-Paulino/SQLC/cmd/runSQLCTX" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/Modulo 4/1- SQLC/cmd/runSQLCTX/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="pos-go-expert" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/Modulo 2/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestAddCourse in github.com/Ingrid-Paulino/UOW/internal/usecase" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="pos-go-expert" />
+      <working_directory value="$PROJECT_DIR$/Modulo 4/2-UOW/2-projeto com uow implementado/internal/usecase" />
+      <root_directory value="$PROJECT_DIR$/Modulo 4/2-UOW/2-projeto com uow implementado" />
+      <kind value="PACKAGE" />
+      <package value="github.com/Ingrid-Paulino/UOW/internal/usecase" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestAddCourse\E$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build github.com/Ingrid-Paulino/DI" />
+        <item itemvalue="Go Test.TestAddCourse in github.com/Ingrid-Paulino/UOW/internal/usecase" />
+        <item itemvalue="Go Build.go build github.com/Ingrid-Paulino/SQLC/cmd/runSQLCTX" />
+        <item itemvalue="Go Build.go build main.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/Modulo 3/4-Upload S3/cmd/uploader/main.go</url>
+          <line>19</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/Modulo 4/1- SQLC/cmd/runSQLCTX/main.go</url>
+          <line>94</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/Modulo 4/3-DI/2-DI aclopado com dependencia wire/main.go</url>
+          <line>13</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/Modulo 4/3-DI/3-DI sem aclopamento e com dependencia wire/main.go</url>
+          <line>11</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

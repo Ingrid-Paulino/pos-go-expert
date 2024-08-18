@@ -108,5 +108,5 @@ func main() {
 
 	println(Compara3(10, 10))
 	// Nao sei pq, mas mesmo os tipos a baixo sendo diferente ele esta deixando usar parametros com tipos diferentes, era pra reclamar
-	println(Compara3(10, 10.04))
+	println(Compara3(10.9, 10.04))
 }

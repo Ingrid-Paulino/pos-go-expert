@@ -1,0 +1,15 @@
+COMANDE LINE INTERFACE CMI:
+- Quando iniciamos a aplicação, as vezes queremos passar parametros, realizar operaçoes em linha de comando.
+
+Vamos usar a biblioteca Cobra para isso:
+- nesse bloco vamos criar uma forma de rodar a aplicação em linha de comando, e vamos criar um comando para rodar a aplicação em linha de comando.
+- repositorio: https://github.com/spf13/cobra-cli
+- vamos usar o comando "cobra-cli" -> apos baixar o projeto se esse comando nn rodar, significa que o path do go não esta apontando para a pasta bin do go.(funcionou)
+- dois comandos importantes do cobra-cli:
+    - cobra-cli init -> inicia o projeto
+        -  gera a pasta cmd com o arquivo root.go
+        - gera o arquivo LICENSE (pode deleta)
+        - gera o arquivo main.go
+    - cobra add -> adiciona um novo comando
+        - cobra-cli add ping -> adiciona o comando ping
+          - Cria um novo arquivo com esse comando

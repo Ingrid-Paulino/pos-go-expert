@@ -1,0 +1,44 @@
+#Caregoria tem varios cursos
+type Category {
+  id: ID! #!: não pode ser nulo e é obrigatório
+  name: String!
+  description: String
+  courses: [Course!]! #lista de cursos
+}
+
+#Curso tem uma categoria
+type Course {
+  id: ID!
+  name : String!
+  description: String
+  category: Category!
+}
+
+#Entradas de dados
+#imputs: Ajuda a fazer entradas de dados
+input NewCategory {
+  name: String!
+  description: String
+}
+
+input NewCourse {
+  name: String!
+  description: String
+  categoryId: ID!
+}
+
+#Cosultas
+type Query {
+  #retorna todas as categorias
+  categories: [Category!]!
+  #retorna todos os cursos
+  courses: [Course!]!
+}
+
+#Mutations: São usadas para fazer alterações nos dados
+type Mutation {
+  #criar uma nova categoria
+  createCategory(input: NewCategory!): Category! #retorna uma categoria
+  #criar um novo curso
+  createCourse(input: NewCourse!): Course! #retorna um curso
+}

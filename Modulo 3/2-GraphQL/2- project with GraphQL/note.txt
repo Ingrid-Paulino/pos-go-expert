@@ -1,0 +1,67 @@
+GraphQL:
+Doc: https://gqlgen.com/ -> ajuda a criar uma estrutura pronta de graphql
+Passo a Passo:
+1- iniciei o modulo do projeto: go mod init github.com/...
+2- Rode o comando para criar o arquivo tools go graphql: printf '//go:build tools\npackage tools\nimport (_ "github.com/99designs/gqlgen"\n _ "github.com/99designs/gqlgen/graphql/introspection")' | gofmt > tools.go
+- não necessariamente vou usar as importaçoes do arquivo tools
+- Rodamos esse comando pois vamos executar um comando que vai gerar uma estrutura de pastas prontas
+3- go mod tidy
+4 - rodar: go run github.com/99designs/gqlgen init
+- esse comando cria a estrutura graphql pronta
+5- go mod tidy
+6- go run server.go -> vai subir o servidor graphql
+- abra no navegador: localhost:8080 -> vai abrir o playground do graphql
+
+7 - deletar tudo que estiver no arquivo schema.graphqls e colar os esquema da sua aplicação
+- o schema.graphqls é o arquivo que define o schema da aplicação, vc faz relacionamentos entre as entidades, define os tipos, etc
+8- Depois de preencher o schema.graphqls, rode o comando: go run github.com/99designs/gqlgen generate
+9 - no arquivo schema.resolvers.go, temos as funções que vão ser executadas quando uma query ou mutation for chamada
+- apague as funcoes de Todo
+10 - implemente seu codigo
+11 - rode : go run server.go
+12- implementar as funçoes schema.resolvers.go
+14- comandos do banco:
+/*
+Para rodar:
+1 - go run cmd/server.go
+2- sqlite3 data.db //para abrir o banco de dados
+3- create table categories (id string, name string, description string); //para criar a tabela
+4- .tables //para ver as tabelas
+5- select * from categories; //para ver os registros da tabela
+6- .exit //para sair do sqlite3 - nn precisa rodar esse comando
+7- create table courses (id string, name string, description string, category_id string); //para criar a tabela
+7 - http://localhost:8080/ //para abrir o playground do GraphQL
+*/
+
+13 - na interface do browser podemos testar, fazendo queries
+- exemplo de query:
+query queryCategories { //lista todas as categorias
+  categories {
+    id
+    name
+    description
+  }
+}
+
+Query de criação de categoria:
+mutation createCategory {
+  createCategory(input: {name: "Nova categoria", description: "Descrição da nova categoria"}) {
+    id
+    name
+    description
+  }
+}
+
+mutation createCourse {
+  createCourse(input: {name: "Curso de GraphQL2", description: "Descrição do curso de GraphQL", categoryId: "8a33f653-c59c-4c1c-995f-0e20e062003b"}) {
+    id
+    name
+  }
+}
+
+query queryCourses {
+  courses {
+    id
+    name
+  }
+}

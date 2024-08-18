@@ -1,0 +1,156 @@
+gRPC: site https://grpc.io/
+- Comunicacao entre microsserviços/sistemas
+    - gRPC is a high-performance, open-source framework for building remote procedure call (RPC) applications.
+    - gRPC é um framework desenvolvido pela Google que tem o objetivo de facilitar o processo de comunicação entre sistemas/microservissos de uma forma extremamente rápida, leve, independente de linguagem e independente de plataforma.
+    - gRPC tem um nivel de segurança maior que o REST, pois utiliza o protocolo HTTP/2, que é mais seguro que o HTTP/1.1.
+    - gRPC tem um nivel de segurança maior para trabalhar com comunicacao entre microsservicos/sistemas.
+
+    - Ideal para microsserviços
+    - é posivel utilizar com mobile, Browsers e Backend (raramente encontramos browsers fazendo chamadas de gRPC)
+    - geração das bibliotecas de forma automática
+    - Streaming bidirecional usando HTTP/2
+        - HTTP/2 consegue trafegar dados binarios, e tem comunicação bidirecional, ou seja, é posivel envias varias requestes e varias responses em uma unica conexão. isso da ganho de velocidade sem mudar nada na aplicação.
+
+    Linguagens suportadas:
+    - gRPC-GO
+    - gRPC-Java
+    - gRPC-C -> as linguagens abaixo são suportadas por gRPC-C
+        - C++
+        - C#
+        - Dart
+        - JavaScript
+        - Node
+        - Kotlin
+        - Objective-C
+        - PHP
+        - Python
+        - Ruby
+        - Rust
+        - Swift
+        - TypeScript
+        - WebAssembly
+
+- gRPC :
+    - Client (server.soma(a, b)) -> chama -> Server (func soma(a, b int) {})
+    - gRpc utiliza Buffers para trafegar dados, ou seja, é mais rapido que JSON, XML, etc.
+
+- Protocol Buffers (protobuf): //  documentação: https://developers.google.com/protocol-buffers/docs/proto3 // https://protobuf.dev/
+    - Protocol Buffers (protobuf) é uma forma de serialização de dados, ou seja, é uma forma de transformar um objeto em bytes para trafegar em rede ou gravar em disco, e depois transformar estes bytes em objeto novamente.
+    - Trabalha com binarios, ou seja, é mais rapido que JSON, XML, etc.
+
+        - Protocol Buffer vs Json
+            - arquivos binarios < JSON
+            - mais rapido que JSON
+            - processo de serialização é mais leve (CPU) do que JSON
+            - Gasta menos recursos de rede
+            - processo é mais veloz
+
+         - protocol buffer sintaxe/contrato:
+          Chamamos de Protofile(arquivo de schema do protocol buffer) ex:
+                syntax = "proto3"
+                message SearchRequest { //isso é oq sera trafegado
+                    string query = 1; //tipo, nome do campo e o numero do campo/posição. Esses numeros sao importantes, pois sao utilizados para identificar os campos no binario.
+                    int32 page_number = 2;
+                    int32 result_per_page = 3;
+                }
+
+- gRPC e protocol buffer são independentes, ou seja, é posivel utilizar gRPC sem utilizar protocol buffer, e é posivel utilizar protocol buffer sem utilizar gRPC.
+
+- HTTP/2
+    - HTTP/2 é um protocolo de comunicação que é utilizado para trafegar dados na web.
+    - HTTP/2 é a evolução do HTTP/1.1, e foi criado para resolver os problemas do HTTP/1.1, como por exemplo, o problema de multiplexação, o problema de cabeçalhos, o problema de compressão, o problema de priorização, o problema de push, etc.
+    - HTTP/2 é um protocolo binário, ou seja, trafega dados binários, e não trafega dados em texto como o HTTP/1.1.
+    - HTTP/2 é um protocolo de comunicação que é utilizado para trafegar dados na web.
+    - HTTP/2 é a evolução do HTTP/1.1, e foi criado para resolver os problemas do HTTP/1.1, como por exemplo, o problema de multiplexação, o problema de cabeçalhos, o problema de compressão, o problema de priorização, o problema de push, etc.
+    - Gasta menos recursos de rede
+    - processo é mais veloz
+
+
+- Formas de comunicação:
+    - Unary
+    - Server Streaming
+    - Client Streaming
+    - Bidirectional Streaming
+        - gRPC - API "unary" (como é feito no REST, uma request e uma response)
+          Client -> Request -> Server
+          Server -> Response -> Client
+        - gRPC - API "server streaming" (Podemos resceber varias response do servidor)
+          Client -> Request -> Server
+          Server -> Response > Response  -> Response -> Response -> Client
+        - gRPC - API "client streaming" (Podemos enviar varias request para o servidor)
+            Client -> Request > Request  -> Request -> Request -> Server
+            Server -> Response -> Client
+        - gRPC - API "bidirectional streaming" (Podemos enviar varias request para o servidor e resceber varias response do servidor)
+            Client -> Request > Request  -> Request -> Request -> Server
+            Server -> Response > Response  -> Response -> Response -> Client
+
+- REST vs gRPC
+    - REST:
+        - Texto / JSON
+        - HTTP/1.1
+        - Unidirecional
+        - Alta latência
+        - Baixa eficiência
+        - Sem contrato (maior chance de erros)
+        - Sem suporte a streaming (Requst / Response)
+        - Design pré-definido
+        - Biblioteca de terceiros
+    - gRPC:
+        - Binário / Protocol Buffers
+        - HTTP/2
+        - Bidirecional e Assíncrono
+        - Baixa latência
+        - Alta eficiência
+        - Contrato Definido (.proto)
+        - Suporte a streaming (Requst / Response)
+        - Design é livre
+        - Geração de código
+
+
+Doc GRPC: https://grpc.io/
+- Para uasr o grpc é necessario instalar duas lib/plugins, siga a doc
+  - protobuf/cmd/prococ-gen-go: pega o arquivo .proto e gera o codigo em go(entidades...)
+  - grpc/cmd/protoc-gen-go-grpc: pega o arquivo .proto e gera todas as interfaces de comunicação do grpc
+  - tem que instalar o protoc tbm
+
+
+
+Passo a passo:
+- Criar a pasta internal
+- adicionei a pasta database
+- Criar o pasta proto e adicionar o arquivo .proto
+- pupular o arquivo
+- rodar o comando para gerar o codigo em go: protoc --go_out=. --go-grpc_out=. proto/course_category.proto
+    - sera gerado uma pasta no caminho que vc definiu com dois arquivos que n podem ser editados
+- depois criei a pasta service e adicionei e implementei o arquivo category.go
+- Criar servidor grpc
+  - add pasta cmd
+    - add pasta server
+    - add pasta grpcServer
+    - add arquivo main.go e implementei o servidor grpc
+- Interagir com grpc
+  - evans grpc é um programa desenvolvido em go que posibilita interagir de forma bem simples com o servidor gRPC:  https://github.com/ktr0731/evans
+    - ele vc instala no projeto, no pc com o comando brew ou trabalha com o docker (ta na doc)
+    - intalei no projeto
+- testar se o servidor roda: go run cmd/grpcServer/main.go
+- crie uma nova aba no terminal e rode: evans -r repl ou se vc estiver rodando em uma porta diferente de :50051 o comando evans -r repl -p numeroDaPorta
+    - vai abrir um console com o meu servidor pb.CategorySercice
+    - OBS: se tiver varios servidores, vc terá que escolher o servidor que quer testar com o comando: service nomeDoServidor (service CategoryService)
+    - OU:
+        - evans -r repl
+        - show package // mostra os pacotes
+        - package pb // escolhe o pacote
+        - show service // mostra os servidores
+        - service CategoryService // escolhe o servidor
+    - Testa uma chamada utilizando o gRPC: call CreateCategory
+        - preenche os campos
+        - vai dar erro pois ainda não tenho o banco de dados
+- Configurar o banco de dados
+    - No terminal
+        -  na pasta 1-project gRPC: sqlite3 db.sqlite
+        -  .tables // mostra as tabelas
+        - create table categories (id string, name string, description string);
+     - Testa uma chamada utilizando o gRPC: call CreateCategory
+             - preenche os campos
+             - sera criado um registro no banco
+     - Lista as categorias: call ListCategories

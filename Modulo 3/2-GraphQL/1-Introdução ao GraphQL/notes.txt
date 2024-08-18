@@ -1,0 +1,26 @@
+GraphQL:
+- GraphQL é uma linguagem de consulta e manipulação de dados para APIs, e um tempo de execução para executar consultas com seus
+  tipos de sistema definidos por consultas existentes em seu backend.
+- É uma especificação que define a forma como as APIs devem ser criadas para que os clientes possam solicitar apenas os dados de que precisam,
+    permitindo que os clientes solicitem vários recursos em uma única solicitação.
+
+
+- Vantagens do GraphQL em relação ao REST:
+- Permite que os clientes solicitem apenas os dados de que precisam, evitando o problema de sobrecarga de dados comumente encontrado em APIs RESTful.
+- Reduz a quantidade de solicitações necessárias para obter os dados desejados, pois os clientes podem especificar exatamente quais campos e recursos desejam em uma única solicitação.
+- Facilita a evolução do esquema da API, pois os clientes podem solicitar novos campos e recursos à medida que são adicionados ao esquema, sem a necessidade de criar novas versões da API.
+- Permite que os clientes obtenham dados de várias fontes em uma única solicitação, pois o GraphQL pode ser usado como uma camada de abstração sobre várias APIs e bancos de dados.
+
+
+GraphQL facilita a vida dos Front-Ends
+- GraphQL é uma chamada RPC(client-servidor) comum, mas enviada dentro de um formato cujo um servidor consegue entender e trazer/processar apenas os campos que o cliente pediu.
+     Isso é muito útil para o front-end, pois evita que o cliente receba dados desnecessários e melhora a performance da aplicação.
+
+- Todas as linguagens de programação possuem bibliotecas para trabalhar com GraphQL, o que facilita a integração com qualquer tecnologia de front-end ou back-end.
+- foi criado pelo facebook em 2012 e lançado em 2015, e atualmente é mantido pela GraphQL Foundation, que é uma organização sem fins lucrativos que visa promover o uso e o desenvolvimento do GraphQL. https://gqlgen.com/
+
+
+OBS: graphql é uma forma de expor os dados da aplicação, rest é só uma forma de expor os dados da aplicação, GRPC é uma forma de expor os dados da aplicação, mas graphql é uma forma de expor os dados da aplicação de forma que o front-end consiga consumir de forma mais eficiente e mais performática.
+
+
+

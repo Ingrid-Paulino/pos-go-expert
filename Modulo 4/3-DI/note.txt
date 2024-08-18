@@ -1,0 +1,30 @@
+DI(Dependency Injection):
+- Injeção de dependência: é uma forma de conseguirmos injetar dependências em nossas classes de forma automática, ou seja, não precisamos nos preocupar em instanciar as classes manualmente, o próprio framework se encarrega de fazer isso para nós.
+- é uma forma de implementar o princípio da inversão de controle (IoC) em um projeto.
+
+- Inversão de controle (IoC):
+- é um princípio de desenvolvimento de software que visa inverter o controle da execução de um programa, ou seja, em vez de ser o próprio programa que controla a execução de suas dependências, é a infraestrutura do sistema que se encarrega de fornecer as dependências necessárias para a execução do programa.
+
+
+Vamos usar a lib/biblioteta para fazer a injeção de dependências em nosso projeto. Assim, podemos instanciar as classes automaticamente, sem precisar nos preocupar em fazer isso manualmente.
+- Bibliotecas de injeção de dependências em Go:
+  - https://github.com/uber-go/fx (Uber Go) -> tipa em tempo de execução. (site doc https://uber-go.github.io/fx/get-started/)
+  - https://github.com/google/wire (Google Wire) -> tipa em tempo de compilação. (vamos ussar esse na aula)
+  Uber Go é uma biblioteca que traz dependencias maiores para o projeto, pois ele faz um tipo de magica pra gerar as dependencias
+  Google Wire é uma lib não faz magica, gera o codigo, construindo a arvore de dependencias  e gera uma função que chamada cria a arvore de dependencia. A vantagem disso, é que se amanha eu não quiser mais usar essa ferramenta, nn tera problema, pq o codigo das dependencias ja estarao jeradas e é um codigo go comum.
+
+Passo a passo:
+- instalar no projeto google wire: go install github.com/google/wire/cmd/wire@latest (nn precisa instalar sempre, só uma vez)
+  - se digitar wire no terminal nn pode dar nenhum erro
+- cria o arquivo wire.go na raiz do projeto
+- no arquivo wire.go
+    - criar a funcao de wire.Build e passar as dependencias que queremos injetar
+    - passar a anotation no inicio do arquivo
+      //go:build wireinject
+       // +build wireinject
+- rodar o comando "wire" no terminal
+  - gera o arquivo wire_gen.go na raiz do projeto -> n altere esse arquivo
+    - esse arquivo tem as dependencias geradas pelo wire
+
+
+
