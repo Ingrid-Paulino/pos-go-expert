@@ -7,28 +7,26 @@ import (
 	"net/http"
 	"os"
 	"time"
-
-	"gorm.io/gorm"
 )
 
-type Exchange struct {
-	Code       string `json:"code"`
-	Codein     string `json:"codein"`
-	Name       string `json:"name"`
-	High       string `json:"high"`
-	Low        string `json:"low"`
-	VarBid     string `json:"varBid"`
-	PctChange  string `json:"pctChange"`
-	Bid        string `json:"bid"`
-	Ask        string `json:"ask"`
-	Timestamp  string `json:"timestamp"`
-	CreateDate string `json:"create_date"`
-	gorm.Model
-}
+//type Exchange struct {
+//	Code       string `json:"code"`
+//	Codein     string `json:"codein"`
+//	Name       string `json:"name"`
+//	High       string `json:"high"`
+//	Low        string `json:"low"`
+//	VarBid     string `json:"varBid"`
+//	PctChange  string `json:"pctChange"`
+//	Bid        string `json:"bid"`
+//	Ask        string `json:"ask"`
+//	Timestamp  string `json:"timestamp"`
+//	CreateDate string `json:"create_date"`
+//	gorm.Model
+//}
 
 func main() {
 	ctx := context.Background()
-	ctx, cancel := context.WithTimeout(ctx, 300*time.Millisecond)
+	ctx, cancel := context.WithTimeout(ctx, 300*time.Second)
 	defer cancel()
 
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, "http://localhost:8080/cotacao", nil)

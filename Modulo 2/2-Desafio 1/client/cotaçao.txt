@@ -1,2 +1,2 @@
-Dólar: "5.5987"
+Dólar: Error saving exchange in database: fail to save in the database: context deadline exceeded
  
