@@ -1,0 +1,45 @@
+FROM golang:latest as builder
+
+# /app: Define o diretório de trabalho - tudo que vamos desenvolver vai ficar dentro do diretorio app
+WORKDIR /app
+
+# Copia todos os arquivos que estão na raiz e Joga pra dentro do container
+COPY . .
+
+#faz o bild da aplicação
+# GOOS=linux: Define o sistema operacional que a aplicação vai rodar
+# -o server: Define o nome do arquivo de saída do build
+# CGO_ENABLED=0: Desabilita o uso de bibliotecas C -> isso evita o erro de nao encontar o arquivo server
+# OBS: esses comandos servem para buildar a aplicação pelo terminal tbm
+RUN GOOS=linux CGO_ENABLED=0 go build -ldflags="-w -s" -o server .
+
+# -ldflags="-w -s": Define as flags de linker que serão usadas no build
+  # -w: Desabilita a geração de informações de DWRF
+  # -s: Desabilita a geração de informações de DWRF e de símbolos de depuração
+  # OBS: esses comandos servem diminuir o tamnaho do arquivo binario
+# - Comando ls -lah
+
+# OBS: Podemos observar que o tamanho do arquivo binario diminuiu de 6.1M para 4.2M - diminuindo eu fico sem informaçoes de debug
+# - Em ambiente de produção é comum não termos informações de debug, pois isso pode ser um risco de segurança
+
+#scratch é uma imagem docker que não tem nada, é uma imagem vazia, é a menor imagem posivel
+FROM scratch
+
+#copia o arquivo gerado na etapa RUN para a imagem final app/server
+# esse passo faz com que a imagem fique menor
+COPY --from=builder /app/server .
+
+CMD ["./server"]
+
+#Comando para bildar a imagem
+#docker build -t ingrid/deploy-k8s:latest -f Dockerfile .
+# docker images | grep ingrid/deploy-k8s - comando para ver as imagens que foram criadas
+
+#Roda a imagem:
+# docker run --rm -p 8080:8080 ingrid/deploy-k8s:latest
+# - em outro terminal roda o comando curl localhost:8080
+
+#OBS: aqui temos uma imagem docker pequena que contem apenas o binario da aplicação, isso é bom pois a imagem fica menor e mais segura
+
+#Sobe a imagem para o docker hub (tem que fazer login antes)
+  #docker push ingrid/deploy-k8s:latest

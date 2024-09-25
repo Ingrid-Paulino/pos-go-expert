@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  goapp:
+    build: . # Quando o docker-compose é executado, ele procura um arquivo Dockerfile no diretório atual e o usa para criar a imagem do contêiner.
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app #  tudo que eu mexer no meu projeto, vai ser refletido no container - tudo ficara salvo na pasta app e tudo que for repletido no container sera refletido no projeto

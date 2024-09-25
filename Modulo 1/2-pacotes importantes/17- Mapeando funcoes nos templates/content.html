@@ -1,23 +1,23 @@
 {{ template "header.html" }}
-    <h1>Cursos</h1>
+<h1>Cursos</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Horas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!--Sera feito um loop. O ponto (.) sig as variaveis-->
-            <!--Da pra colocar condicionais-->
-            {{ range . }} 
-                <tr>
-            <!--joga o valor .Nome pra dentro da função ToUpper e transforma para maiusculo -->
-                    <td>{{ .Nome | ToUpper }}</td>  
-                    <td>{{ .CargaHoraria }}</td>
-                </tr>
-            {{ end }}
-        </tbody>
-    </table>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Horas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--Sera feito um loop. O ponto (.) sig as variaveis-->
+    <!--Da pra colocar condicionais-->
+    {{ range . }}
+    <tr>
+      <!--joga o valor .Nome pra dentro da função ToUpper e transforma para maiusculo -->
+      <td>{{ .Nome | ToUpper }}</td>
+      <td>{{ .CargaHoraria }}</td>
+    </tr>
+    {{ end }}
+  </tbody>
+</table>
 {{ template "footer.html" }}

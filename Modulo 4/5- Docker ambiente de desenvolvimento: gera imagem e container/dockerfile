@@ -1,0 +1,9 @@
+FROM golang:latest
+
+# /app: Define o diretório de trabalho - tudo que vamos desenvolver vai ficar dentro do diretorio app
+WORKDIR /app
+
+# Comando eecutando quando o container for criado
+ #esse comando nao faz nada, apenas fica lendo o que esta sendo mandado para a saida /dev/null - esse comando so serve para rodar e manter o container de pé
+ # comando que vai manter o container de pé
+CMD ["tail", "-f", "/dev/null"]

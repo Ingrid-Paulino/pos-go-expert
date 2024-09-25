@@ -1,6 +1,6 @@
 {
-    "db": "mysql",
-    "host": "localhost",
-    "user": "root",
-    "password": "root"
+  "db": "mysql",
+  "host": "localhost",
+  "user": "root",
+  "password": "root"
 }

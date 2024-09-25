@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.8.16-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - "5672:5672" #porta de comunicação com o rabbitmq
+      - "15672:15672" #porta da minha maquina
+      - "15692:15692" #porta vai facilitar a navegação no painel de administração do RabbitMQ
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+      - RABBITMQ_DEFAULT_VHOST=/
+# Para rodar: docker-compose up -d
+# Para parar: docker-compose down
+# Para ver os logs: docker-compose logs -f
+
+# Para entrar no RabbitMQ:
+# em outro terminal ou no browser:
+#curl http://localhost:15672/

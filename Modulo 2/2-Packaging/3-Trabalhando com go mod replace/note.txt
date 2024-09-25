@@ -1,0 +1,3 @@
+Nessa aula aprendemos que cada pacote do go pode ter seu arquivo go.mod de forma independente. Isso é muito útil para projetos que possuem muitos pacotes e que cada pacote possua suas próprias dependências.
+
+Caso precise importar um pacote que esteja apenas na sua maquina e não no repositório, você pode usar o replace no go.mod. Isso é muito útil para quando você está desenvolvendo um pacote e precisa testar ele em outro projeto.

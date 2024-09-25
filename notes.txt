@@ -69,9 +69,18 @@ O vendor garante que os pacotes vao estar disponiveis, mesmo que o proxy.golang.
 - https://gqlgen.com/ - Gerador de codigo para GO, que facilita a implementação do GraphQL.
 
 
+- Docker:
+  - docker ps -a -> lista todos os containers que estao rodando
+  - docker rm -f $(docker ps -a -q) -> remove todos os containers que estao rodando
+  - docker-compose up -d -> sobe todos os containers que estao no docker-compose.yaml
+    - docker-compose down -> para todos os containers que estao no docker-compose.yaml
+  - docker-compose ps / docker ps / docker ps -a -> lista todos os containers que estao rodando
 
 
 
+LIB PARA TESTAR CHAMADAS DE CONCORRENTES:
+go-wrk: https://github.com/tsliwowicz/go-wrk - (tem que instalar no pc)
+    -  go-wrk é uma ferramenta moderna de benchmarking HTTP capaz de gerar carga significativa quando executada em uma única CPU multi-core.
+       Ela se baseia em rotinas e agendadores da linguagem go para IO assíncrono e simultaneidade nos bastidores.
 
-
-
+comando: go-wrk -c 20 -d 100000 http://localhost:6666/leak - (20 é a qtd de pessoas que vao acessar(qtd de requisicoes), 100000 é a duração do tempo que vai rodar, http://localhost:6666/leak é a url que vai ser testada)

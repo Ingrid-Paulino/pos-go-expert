@@ -1,0 +1,25 @@
+Nesse Bloco vamos aprender a bildar os programas em GO, gerando uma imagem docker com o programa, e fazer o deploy no kubernetes.
+
+- Vamos fazer a compilação da aplicação, gerar uma imagem docker tanto en versão de desenvolvimento quanto em produção e depois colocarmos essa
+imagem para rodar no kubernetes.
+
+- k8s é uma plataforma de orquestração de containers, que permite a execução de aplicações em containers de forma escalável e resiliente.
+- k8s==kubernetes
+
+AMBIENTE DE DESENVOLVIMENTO:
+
+Nesse Bloco 5 jogamos a applicação para uma imagem docker e com os comandos a baixo, foi posivel rodar a aplicação em um container docker.
+- docker-compose.yaml: permite subir varios containers de uma vez
+- Docker:
+  - docker ps -a -> lista todos os containers que estao rodando
+  - docker rm -f $(docker ps -a -q) -> remove todos os containers que estao rodando
+  - docker-compose up -d -> sobe todos os containers que estao no docker-compose.yaml
+      - docker-compose down -> para todos os containers que estao no docker-compose.yaml
+  - docker-compose ps / docker ps / docker ps -a -> lista todos os containers que estao rodando
+  - docker-compose exec goapp(nome do container) bash -> entra no container - permite executar comandos dentro do container e programar dentro do container
+    - entrando no container, posso dar um ls e ver o que tem dentro do container
+    - isso permite eu programar dentro do container, e executar comandos dentro do container
+    - dessa forma consigo programar em go dentro do container e nao precisaria ter o projeto em go instalado na minha maquina
+    - dessa forma para esse projeto posso rodar co container o projeto:
+      - go rum main.go
+      - curl localhost:8080

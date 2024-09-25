@@ -1,0 +1,80 @@
+Nesse Bloco vamos aprender a bildar os programas em GO, gerando uma imagem docker com o programa, e fazer o deploy no kubernetes.
+
+- Vamos fazer a compilação da aplicação, gerar uma imagem docker tanto en versão de desenvolvimento quanto em produção e depois colocarmos essa
+imagem para rodar no kubernetes.
+
+- k8s é uma plataforma de orquestração de containers, que permite a execução de aplicações em containers de forma escalável e resiliente.
+- k8s==kubernetes
+
+AMBIENTE DE PRODUCAO:
+
+Nesse Bloco 5 jogamos a applicação para uma imagem docker e com os comandos a baixo, foi posivel rodar a aplicação em um container docker.
+- docker-compose.yaml: permite subir varios containers de uma vez
+- Docker:
+  - docker ps -a -> lista todos os containers que estao rodando
+  - docker rm -f $(docker ps -a -q) -> remove todos os containers que estao rodando
+  - docker-compose up -d -> sobe todos os containers que estao no docker-compose.yaml
+      - docker-compose down -> para todos os containers que estao no docker-compose.yaml
+  - docker-compose ps / docker ps / docker ps -a -> lista todos os containers que estao rodando
+  - docker-compose exec goapp(nome do container) bash -> entra no container - permite executar comandos dentro do container e programar dentro do container
+    - entrando no container, posso dar um ls e ver o que tem dentro do container
+    - isso permite eu programar dentro do container, e executar comandos dentro do container
+    - dessa forma consigo programar em go dentro do container e nao precisaria ter o projeto em go instalado na minha maquina
+    - dessa forma para esse projeto posso rodar co container o projeto:
+      - go rum main.go
+      - curl localhost:8080
+
+
+Builda o projeto no terminal: (vira um arquivo binario)
+-Comando GOOS=linux go build -o server .
+  # GOOS=linux: Define o sistema operacional que a aplicação vai rodar
+  # -o server: Define o nome do arquivo de saída do build
+  # OBS: esses comandos servem para buildar a aplicação pelo terminal tbm
+
+- Comando ls -lah: lista todos os arquivos do diretorio atual, inclusive os arquivos ocultos
+    # é possivel diminuir o tamando do arquivo binario com o DWRF(Debugging With arbitrary record Format), diminuindo/reduzindo  o tamanho do arquivo binario não será
+    possivel debugar e fazer profile do arquivo binario
+
+- Comando GOOS=linux go build -ldflags="-w -s" -o server . (builda o projeto de novo, mas agora com o DWRF)
+  # -ldflags="-w -s": Define as flags de linker que serão usadas no build
+  # -w: Desabilita a geração de informações de DWRF
+  # -s: Desabilita a geração de informações de DWRF e de símbolos de depuração
+  # OBS: esses comandos servem diminuir o tamnaho do arquivo binario
+- Comando ls -lah
+
+OBS: Podemos observar que o tamanho do arquivo binario diminuiu de 6.1M para 4.2M - diminuindo eu fico sem informaçoes de debug
+- Em ambiente de produção é comum não termos informações de debug, pois isso pode ser um risco de segurança
+
+Cria uma imagem docker da aplicação:
+Comando docker build -t ingrid/deploy-k8s:latest -f Dockerfile .
+  # docker build: Comando para construir uma imagem Docker
+  # -t ingrid/deploy-k8s:latest: Define o nome e a tag da imagem que será criada
+  # -f Dockerfile: Define o nome do arquivo Dockerfile que será usado para construir a imagem
+  # .: Define o diretório de contexto para a construção da imagem
+  # OBS: esse comando serve para criar uma imagem docker da aplicação
+
+  # docker images | grep ingrid/deploy-k8s - comando para ver as imagens que foram criadas
+
+Roda a imagem:
+ docker run --rm -p 8080:8080 ingrid/deploy-k8s:latest
+ - em outro terminal roda o comando curl localhost:8080
+
+#OBS: aqui temos uma imagem docker pequena que contem apenas o binario da aplicação, isso é bom pois a imagem fica menor e mais segura
+
+#Sobe a imagem para o docker hub (tem que fazer login antes)
+  #docker push ingrid/deploy-k8s:latest
+
+Kubernetes:
+  - Kubernetes não é um concorrente do docker, mas sim uma ferramenta de orquestração de containers
+  ele consegue rodar e gerenciar varios containers ao mesmo tempo.
+
+Para usar o kubernetes nesse projeto, iremos usar o kind (kubernetes in docker) -> https://kind.sigs.k8s.io/
+- Comando: kind create cluster --name=goexpert -> cria um cluster kubernetes
+- Comando: kind get clusters -> lista todos os clusters kubernetes que estão rodando
+- Comando: kind delete cluster --name=goexpert -> deleta o cluster kubernetes
+- Comando: kubectl cluster-info --context kind-goexpert -> mostra as informações do cluster kubernetes -> kubectl tem que ser instalado para rodar comandos
+- comando: kubectl get nodes -> lista todos os nodes do cluster kubernetes
+
+Roda o arquivo deployment.yaml no cluster kubernetes:
+- Comando: kubectl apply -f k8s/deployment.yaml -> aplica o arquivo deployment.yaml no cluster kubernetes
+- Comando: kubectl get pods -> lista todos os pods do cluster kubernetes

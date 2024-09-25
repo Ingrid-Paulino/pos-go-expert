@@ -21,6 +21,3 @@ GraphQL facilita a vida dos Front-Ends
 
 
 OBS: graphql é uma forma de expor os dados da aplicação, rest é só uma forma de expor os dados da aplicação, GRPC é uma forma de expor os dados da aplicação, mas graphql é uma forma de expor os dados da aplicação de forma que o front-end consiga consumir de forma mais eficiente e mais performática.
-
-
-

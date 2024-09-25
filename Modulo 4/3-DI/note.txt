@@ -25,6 +25,3 @@ Passo a passo:
 - rodar o comando "wire" no terminal
   - gera o arquivo wire_gen.go na raiz do projeto -> n altere esse arquivo
     - esse arquivo tem as dependencias geradas pelo wire
-
-
-

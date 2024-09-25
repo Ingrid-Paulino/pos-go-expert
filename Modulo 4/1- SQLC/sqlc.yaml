@@ -10,6 +10,4 @@ sql:
         overrides:
           - db_type: "decimal" #tudo que for decimal vai ser float64, pq decimal o sqlc tranforma em string
             go_type: "float64"
-
-
 #sqlc tem suporte para mysql, postgres, sqlite e cockroachdb

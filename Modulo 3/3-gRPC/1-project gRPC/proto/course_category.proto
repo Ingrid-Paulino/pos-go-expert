@@ -47,6 +47,3 @@ service CategoryService {
     //O fluxo será, envia um dado e recebe um dado
     rpc CreateCategoryStreamBidirectional(stream CreateCategoryRequest) returns (stream Category) {}
 }
-
-
-

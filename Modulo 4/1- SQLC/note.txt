@@ -78,5 +78,3 @@ TRANSACOES:
 - Garante que todas as queries sejam executadas, persistidas ou desfeitas em caso de erro com sucesso
 - Em casos de erro temos a garantia que teremos um roolback
 - ex de transacoes na pasta runSQLCTX
-
-
